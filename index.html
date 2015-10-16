@@ -27,7 +27,7 @@
           }; 
           MP.api.funnel('Landing Page Loaded', 'Account Created', eventObject, params).done(function(queryResults) {
           
-            console.log(queryResults.values());
+            console.log(queryResults);
             var data = $('<pre></pre>'); 
             data.html(JSON.stringify(queryResults)); 
             data.appendTo('body');
