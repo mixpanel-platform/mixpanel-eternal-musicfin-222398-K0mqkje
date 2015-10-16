@@ -25,6 +25,8 @@
           where: '(string(properties["Tags"]) == "major")',
           segment: 'properties["mp_country_code"]'
           }; 
+          
+          var barChart = $('#chart').MPChart({chartType: 'bar'});
           MP.api.funnel('Landing Page Loaded', 'Account Created', eventObject, params).done(function(queryResults) {
           
             console.log(queryResults);
@@ -32,8 +34,8 @@
             //data.html(JSON.stringify(queryResults)); 
             //data.appendTo('body');
             
-            $('#chart').MPChart({chartType: 'bar', data: queryResults});
-            
+            //$('#chart').MPChart({chartType: 'bar', data: queryResults});
+            barChart.MPChart('setData', queryResults);
           }); 
           </script> 
   </body> 
