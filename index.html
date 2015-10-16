@@ -19,9 +19,9 @@
           };
           
           var params = { 
-          from: '2015-09-15', 
+          from: '2015-10-15', 
           to: '2015-10-15', 
-          length: 30, 
+          length: 1, 
           where: '(string(properties["Tags"]) == "major")',
           segment: 'properties["mp_country_code"]'
           }; 
@@ -36,7 +36,10 @@
             
             //$('#chart').MPChart({chartType: 'bar', data: queryResults});
             //barChart.MPChart('setData', queryResults);
-            $('#chart').MPTable({data: queryResults});
+            //$('#chart').MPTable({data: queryResults});
+            $('<div></div>').appendTo('body').MPTable({data: queryResults});          
+            
+            
           }); 
           </script> 
   </body> 
