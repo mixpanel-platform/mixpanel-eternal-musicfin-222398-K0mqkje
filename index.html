@@ -25,15 +25,15 @@
           where: '(string(properties["Tags"]) == "major")',
           segment: 'properties["mp_country_code"]'
           }; 
-          MP.api.funnel('Landing Page Loaded', 'Account Created' eventObject, params).done(function(queryResults) {
+          MP.api.funnel('Landing Page Loaded', 'Account Created', eventObject, params).done(function(queryResults) {
           
-          console.log(queryResults.values());
-          var data = $('<pre></pre>'); 
-          data.html(JSON.stringify(queryResults)); 
-          data.appendTo('body');
-          
-          //$('#chart').MPChart({chartType: 'bar', data: queryResults});
-          
+            console.log(queryResults.values());
+            var data = $('<pre></pre>'); 
+            data.html(JSON.stringify(queryResults)); 
+            data.appendTo('body');
+            
+            //$('#chart').MPChart({chartType: 'bar', data: queryResults});
+            
           }); 
           </script> 
   </body> 
