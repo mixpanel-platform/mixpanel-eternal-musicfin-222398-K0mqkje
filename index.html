@@ -1,15 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
-    <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
-  </head>
-  <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
-    <script>
-      // Run queries and display results here
-    </script>
-  </body>
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="utf-8"> 
+        <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script> 
+        <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script> 
+  </head> 
+  <body class="mixpanel-platform-body"> 
+        <h1>FSS Sharing Link Experiment</h1> 
+          <p>Data will show up below</p> 
+          <div id='chart'></div> 
+          <script>
+          
+          var eventObject = { 
+          event: 'Song Played', 
+          selector: 'number(properties["Length"]) > 5' 
+          };
+          
+          var params = { 
+          from: '2015-10-15', 
+          to: '2015-10-15', 
+          length: 1, 
+          where: '(string(properties["Tags"]) == "major")',
+          segment: 'properties["mp_country_code"]'
+          }; 
+          MP.api.funnel('Landing Page Loaded', 'Account Created' eventObject, params).done(function(queryResults) {
+          
+          console.log(queryResults.values());
+          var data = $('<pre></pre>'); 
+          data.html(JSON.stringify(queryResults)); 
+          data.appendTo('body');
+          
+          //$('#chart').MPChart({chartType: 'bar', data: queryResults});
+          
+          }); 
+          </script> 
+  </body> 
 </html>
